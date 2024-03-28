@@ -24,6 +24,12 @@ cd xiringuito
 sudo make install
 xiringuito user@your.ssh.server 10.0.0.0/8 192.168.0.0/16
 ```
+generate key in cloudserver
+ssh-keygen -b 4096
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+cp ~/.ssh/id_rsa id_rsa.pem
+copy private key pvt network system & connect cloudserver
+
 ./xiringuito -p60080 -k /root/.ssh/id_rsa.pem root@cloudscanner_ip
 
 ...bridge ethernet adpter with tunel adpter in pvt network system (enp0s3-ethernet,tun12 -tunel adpter )
