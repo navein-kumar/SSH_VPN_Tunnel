@@ -24,6 +24,7 @@ cd xiringuito
 sudo make install
 xiringuito user@your.ssh.server 10.0.0.0/8 192.168.0.0/16
 ```
+```
 generate key in cloudserver
 ssh-keygen -b 4096
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
