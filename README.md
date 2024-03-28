@@ -24,7 +24,20 @@ cd xiringuito
 sudo make install
 xiringuito user@your.ssh.server 10.0.0.0/8 192.168.0.0/16
 ```
+./xiringuito -p60080 -k /root/.ssh/id_rsa.pem root@cloudscanner_ip
 
+...bridge ethernet adpter with tunel adpter in pvt network system (enp0s3-ethernet,tun12 -tunel adpter )
+```
+iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE &&
+iptables -t nat -A POSTROUTING -o tun12 -j MASQUERADE && 
+iptables -A INPUT -i enp0s3 -m state --state RELATED,ESTABLISHED -j ACCEPT &&
+iptables -A INPUT -i tun12 -m state --state RELATED,ESTABLISHED -j ACCEPT &&
+iptables -A FORWARD -j ACCEPT
+```
+... find tunel interface & route traffic to tunel interface --> in cloudscanner
+```
+ ip route add 192.168.1.0/24 via 192.168.245.46
+```
 Yes! That easy - just pass an SSH server and the list of networks your want to access through this server.
 
 You will need:
