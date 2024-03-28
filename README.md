@@ -32,7 +32,7 @@ cp ~/.ssh/id_rsa id_rsa.pem
 copy private key pvt network system & connect cloudserver
 
 ./xiringuito -p60080 -k /root/.ssh/id_rsa.pem root@cloudscanner_ip
-
+```
 ...bridge ethernet adpter with tunel adpter in pvt network system (enp0s3-ethernet,tun12 -tunel adpter )
 ```
 iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE &&
