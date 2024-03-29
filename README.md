@@ -31,7 +31,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 cp ~/.ssh/id_rsa id_rsa.pem
 copy private key pvt network system & connect cloudserver
 chmod 600 id_rsa.pem
-./xiringuito -p60080 -k /root/.ssh/id_rsa.pem root@cloudscanner_ip
+nohup ./xiringuito -p60080 -k  ./id_rsa.pem root@cloudscanner_ip &
 ```
 ...bridge ethernet adpter with tunel adpter in pvt network system (enp0s3-ethernet,tun12 -tunel adpter )
 ```
